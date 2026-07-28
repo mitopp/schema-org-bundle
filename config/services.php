@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollector;
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollectorInterface;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollector;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollectorInterface;
 use Mitopp\SchemaOrgBundle\Twig\JsonLdRenderer;
 
 return static function (ContainerConfigurator $container): void {
@@ -24,5 +24,5 @@ return static function (ContainerConfigurator $container): void {
         ->arg('$prettyPrint', param('mitopp_schema_org.pretty_print'))
     ;
 
-    $services->alias(SchemaGraphCollectorInterface::class, SchemaGraphCollector::class);
+    $services->alias(SchemaOrgGraphCollectorInterface::class, SchemaOrgGraphCollector::class);
 };

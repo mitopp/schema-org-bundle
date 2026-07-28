@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Mitopp\SchemaOrgBundle\Twig;
 
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollectorInterface;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollectorInterface;
 use Mitopp\SchemaOrgBundle\Type\Contract\SchemaItemInterface;
 
 final readonly class JsonLdRenderer implements JsonLdRendererInterface
 {
     public function __construct(
-        private SchemaGraphCollectorInterface $graph,
+        private SchemaOrgGraphCollectorInterface $graph,
         private bool $prettyPrint = true,
     ) {
     }

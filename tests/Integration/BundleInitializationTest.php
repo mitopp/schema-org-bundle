@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Mitopp\SchemaOrgBundle\Tests\Integration;
 
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollectorInterface;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollectorInterface;
 use Mitopp\SchemaOrgBundle\MitoppSchemaOrgBundle;
 use Mitopp\SchemaOrgBundle\Twig\JsonLdRenderer;
 use Nyholm\BundleTest\TestKernel;
@@ -31,8 +31,8 @@ final class BundleInitializationTest extends KernelTestCase
         $container = $kernel->getContainer();
 
         // Test if your service exists
-        self::assertTrue($container->has(SchemaGraphCollectorInterface::class));
-        self::assertInstanceOf(SchemaGraphCollectorInterface::class, $container->get(SchemaGraphCollectorInterface::class));
+        self::assertTrue($container->has(SchemaOrgGraphCollectorInterface::class));
+        self::assertInstanceOf(SchemaOrgGraphCollectorInterface::class, $container->get(SchemaOrgGraphCollectorInterface::class));
     }
 
     public function testRendererHasPrettyPrintEnabledByDefault(): void
