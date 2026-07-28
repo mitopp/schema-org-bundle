@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Mitopp\SchemaOrgBundle\Tests\Unit\Graph;
 
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollector;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollector;
 use Mitopp\SchemaOrgBundle\Type\Contract\SchemaItemInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(SchemaGraphCollector::class)]
-final class SchemaGraphCollectorTest extends TestCase
+#[CoversClass(SchemaOrgGraphCollector::class)]
+final class SchemaOrgGraphCollectorTest extends TestCase
 {
     public function testAddAndGetItems(): void
     {
-        $collector = new SchemaGraphCollector();
+        $collector = new SchemaOrgGraphCollector();
         $this->assertEmpty($collector->getItems());
 
         $item1 = $this->createMock(SchemaItemInterface::class);

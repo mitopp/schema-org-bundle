@@ -8,7 +8,7 @@ use Mitopp\SchemaOrgBundle\Twig\JsonLdRendererInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-final class SchemaExtension extends AbstractExtension
+final class SchemaOrgExtension extends AbstractExtension
 {
     public function __construct(
         private readonly JsonLdRendererInterface $jsonLdRenderer,

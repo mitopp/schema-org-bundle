@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- [BC] Renamed `SchemaGraphCollectorInterface` to `SchemaOrgGraphCollectorInterface`
+- [BC] Renamed `SchemaGraphCollector` to `SchemaOrgGraphCollector`
+- [BC] Renamed `SchemaExtension` to `SchemaOrgExtension`.
+
 ## 0.1.0 - 2026-07-28
 
 ### Added
@@ -26,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added GitHub Dependabot configuration.
 - Add GitHub actions.
 - Initialize bundle.
-- Added comprehensive unit tests for all Schema.org types, `SchemaGraphCollector`, and `JsonLdRenderer`.
+- Added comprehensive unit tests for all Schema.org types, `SchemaOrgGraphCollector`, and `JsonLdRenderer`.
 
 ### Changed
 - Corrected documentation and README.md examples to match actual class implementations (constructor initialization instead of non-existent fluent methods).

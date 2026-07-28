@@ -31,7 +31,7 @@ This section provides examples and documentation for the Schema.org types suppor
 All types follow a similar pattern:
 1. Instantiate the object with required parameters (and an `@id` identifier).
 2. Set additional properties using `setProperty()`.
-3. Add the object to the `SchemaGraphCollector`.
+3. Add the object to the `SchemaOrgGraphCollector`.
 
 ```php
 use Mitopp\SchemaOrgBundle\Config\SchemaOrgConfigurationInterface;

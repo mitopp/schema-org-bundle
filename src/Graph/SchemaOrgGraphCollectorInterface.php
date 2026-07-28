@@ -6,7 +6,7 @@ namespace Mitopp\SchemaOrgBundle\Graph;
 
 use Mitopp\SchemaOrgBundle\Type\Contract\SchemaItemInterface;
 
-interface SchemaGraphCollectorInterface
+interface SchemaOrgGraphCollectorInterface
 {
     public function add(SchemaItemInterface $item): self;
 

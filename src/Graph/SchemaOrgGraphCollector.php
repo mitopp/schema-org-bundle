@@ -6,14 +6,14 @@ namespace Mitopp\SchemaOrgBundle\Graph;
 
 use Mitopp\SchemaOrgBundle\Type\Contract\SchemaItemInterface;
 
-final class SchemaGraphCollector implements SchemaGraphCollectorInterface
+final class SchemaOrgGraphCollector implements SchemaOrgGraphCollectorInterface
 {
     /**
      * @var array<SchemaItemInterface>
      */
     private array $items = [];
 
-    public function add(SchemaItemInterface $item): SchemaGraphCollectorInterface
+    public function add(SchemaItemInterface $item): SchemaOrgGraphCollectorInterface
     {
         $this->items[] = $item;
 

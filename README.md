@@ -49,13 +49,13 @@ mitopp_schema_org:
 
 ### In the Controller
 
-You can inject the `SchemaGraphCollectorInterface` directly into your controller to add data:
+You can inject the `SchemaOrgGraphCollectorInterface` directly into your controller to add data:
 
 ```php
 namespace App\Controller;
 
 use Mitopp\SchemaOrgBundle\Config\SchemaOrgConfigurationInterface;
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollectorInterface;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollectorInterface;
 use Mitopp\SchemaOrgBundle\Type\Thing\Organization;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,7 +64,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(SchemaGraphCollectorInterface $collector, SchemaOrgConfigurationInterface $configuration): Response
+    public function index(SchemaOrgGraphCollectorInterface $collector, SchemaOrgConfigurationInterface $configuration): Response
     {
         $org = new Organization(
             identifier: $configuration->createIdentifier('#org'),
@@ -88,7 +88,7 @@ It is often useful to add global data (such as organization or website search) c
 namespace App\EventListener;
 
 use Mitopp\SchemaOrgBundle\Config\SchemaOrgConfigurationInterface;
-use Mitopp\SchemaOrgBundle\Graph\SchemaGraphCollectorInterface;
+use Mitopp\SchemaOrgBundle\Graph\SchemaOrgGraphCollectorInterface;
 use Mitopp\SchemaOrgBundle\Type\Thing\CreativeWork\WebSite;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
@@ -98,7 +98,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 final class SchemaOrgListener
 {
     public function __construct(
-        private readonly SchemaGraphCollectorInterface $collector,
+        private readonly SchemaOrgGraphCollectorInterface $collector,
         private readonly SchemaOrgConfigurationInterface $configuration,
     ) {
     }
