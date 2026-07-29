@@ -51,4 +51,18 @@ final class JsonLdRendererTest extends TestCase
 
         $this->assertStringContainsString('    "@context": "https://schema.org"', $output);
     }
+
+    public function testRenderWithNonce(): void
+    {
+        $item = $this->createMock(SchemaItemInterface::class);
+        $item->method('toArray')->willReturn(['@type' => 'Thing']);
+
+        $graph = $this->createMock(SchemaOrgGraphCollectorInterface::class);
+        $graph->method('getItems')->willReturn([$item]);
+
+        $renderer = new JsonLdRenderer($graph, false);
+        $output = $renderer->render('test-nonce');
+
+        $this->assertStringContainsString('<script type="application/ld+json" nonce="test-nonce">', $output);
+    }
 }

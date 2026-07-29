@@ -134,6 +134,9 @@ To output the collected data in your HTML header, use the provided Twig function
         {# Renders the entire Schema.org graph as a JSON-LD script tag #}
         {{ render_schema_org() }}
         
+        {# Optional: If you use Content Security Policy (CSP), you can pass a nonce #}
+        {# {{ render_schema_org(csp_nonce('script')) }} #}
+        
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
