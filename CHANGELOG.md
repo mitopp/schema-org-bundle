@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added optional `nonce` attribute support to `JsonLdRenderer` and `render_schema_org` Twig function for Content Security Policy (CSP) compliance.
+
 ### Changed
 
 - [BC] Renamed `SchemaGraphCollectorInterface` to `SchemaOrgGraphCollectorInterface`

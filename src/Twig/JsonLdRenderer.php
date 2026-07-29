@@ -15,7 +15,7 @@ final readonly class JsonLdRenderer implements JsonLdRendererInterface
     ) {
     }
 
-    public function render(): string
+    public function render(?string $nonce = null): string
     {
         $items = $this->graph->getItems();
 
@@ -45,7 +45,11 @@ final readonly class JsonLdRenderer implements JsonLdRendererInterface
                 $options
             );
 
-            return sprintf("<script type=\"application/ld+json\">\n%s\n</script>", $json);
+            $nonceAttr = $nonce !== null
+                ? sprintf(' nonce="%s"', htmlspecialchars($nonce, ENT_QUOTES, 'UTF-8'))
+                : '';
+
+            return sprintf("<script type=\"application/ld+json\"%s>\n%s\n</script>", $nonceAttr, $json);
         } catch (\Throwable $throwable) {
             throw new \RuntimeException(
                 message: 'Failed to encode JSON-LD payload',

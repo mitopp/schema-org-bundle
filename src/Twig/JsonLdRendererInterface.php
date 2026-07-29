@@ -6,5 +6,5 @@ namespace Mitopp\SchemaOrgBundle\Twig;
 
 interface JsonLdRendererInterface
 {
-    public function render(): string;
+    public function render(?string $nonce = null): string;
 }
