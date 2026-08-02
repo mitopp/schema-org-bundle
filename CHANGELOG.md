@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Make `identifier` optional in `Person` and update tests accordingly.
+
 ## 0.2.0 - 2026-07-29
 
 ### Added

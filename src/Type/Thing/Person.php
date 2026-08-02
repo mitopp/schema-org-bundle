@@ -12,8 +12,8 @@ use Mitopp\SchemaOrgBundle\Type\AbstractType;
 final class Person extends AbstractType
 {
     public function __construct(
-        string $identifier,
         string $name,
+        ?string $identifier = null,
         ?string $url = null,
     ) {
         parent::__construct('Person', $identifier);

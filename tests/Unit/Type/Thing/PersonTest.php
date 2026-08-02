@@ -14,8 +14,8 @@ final class PersonTest extends TestCase
     public function testInitialization(): void
     {
         $person = new Person(
-            identifier: 'https://example.com/person/john',
             name: 'John Doe',
+            identifier: 'https://example.com/person/john',
             url: 'https://example.com/john'
         );
 
