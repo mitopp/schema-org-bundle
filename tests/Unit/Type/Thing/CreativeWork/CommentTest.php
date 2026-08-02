@@ -14,7 +14,7 @@ final class CommentTest extends TestCase
 {
     public function testInitializationWithAuthorObject(): void
     {
-        $author = new Person('https://example.com/p1', 'Author', 'https://example.com/a');
+        $author = new Person('Author', 'https://example.com/a');
         $comment = new Comment(
             author: $author,
             datePublished: '2024-01-01',
@@ -24,7 +24,7 @@ final class CommentTest extends TestCase
         $data = $comment->toArray();
 
         $this->assertEquals('Comment', $data['@type']);
-        $this->assertEquals(['@id' => 'https://example.com/p1'], $data['author']);
+        $this->assertEquals(['@id' => 'https://example.com/a'], $data['author']);
         $this->assertEquals('2024-01-01', $data['datePublished']);
         $this->assertEquals('Nice recipe!', $data['text']);
     }

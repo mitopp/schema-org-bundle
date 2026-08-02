@@ -14,7 +14,7 @@ final class ReviewTest extends TestCase
 {
     public function testInitialization(): void
     {
-        $author = new Person('https://example.com/p1', 'Author', 'https://example.com/a');
+        $author = new Person('Author', 'https://example.com/p1');
         $review = new Review(
             datePublished: '2024-01-01',
             reviewBody: 'Excellent!',
