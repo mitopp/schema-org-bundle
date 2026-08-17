@@ -17,8 +17,8 @@ final class SchemaOrgGraphCollectorTest extends TestCase
         $collector = new SchemaOrgGraphCollector();
         $this->assertEmpty($collector->getItems());
 
-        $item1 = $this->createMock(SchemaItemInterface::class);
-        $item2 = $this->createMock(SchemaItemInterface::class);
+        $item1 = $this->createStub(SchemaItemInterface::class);
+        $item2 = $this->createStub(SchemaItemInterface::class);
 
         $collector->add($item1);
         $collector->add($item2);
