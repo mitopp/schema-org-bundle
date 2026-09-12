@@ -15,8 +15,9 @@ final class ListItem extends AbstractType
         int $position,
         string $name,
         string $itemUrl,
+        ?string $identifier = null,
     ) {
-        parent::__construct('ListItem');
+        parent::__construct('ListItem', $identifier);
 
         $this->data['position'] = $position;
         $this->data['name'] = $name;

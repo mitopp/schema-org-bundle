@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Mitopp\SchemaOrgBundle\Type\Thing\Intangible\ItemList;
 
-use Mitopp\SchemaOrgBundle\Type\AbstractType;
+use Mitopp\SchemaOrgBundle\Type\Thing\Intangible\ItemList;
 use Mitopp\SchemaOrgBundle\Type\Thing\Intangible\ListItem;
 
 /**
  * @see https://schema.org/BreadcrumbList
  */
-final class BreadcrumbList extends AbstractType
+final class BreadcrumbList extends ItemList
 {
     /**
      * @param array<ListItem> $itemListElement
@@ -19,8 +19,10 @@ final class BreadcrumbList extends AbstractType
         array $itemListElement,
         ?string $identifier = null,
     ) {
-        parent::__construct('BreadcrumbList', $identifier);
-
-        $this->data['itemListElement'] = $itemListElement;
+        parent::__construct(
+            itemListElement: $itemListElement,
+            identifier: $identifier,
+            type: 'BreadcrumbList',
+        );
     }
 }

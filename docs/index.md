@@ -21,6 +21,7 @@ This section provides examples and documentation for the Schema.org types suppor
 
 ### Intangibles
 - [ListItem](thing/intangible/list_item.md)
+- [ItemList](thing/intangible/item_list.md)
 - [BreadcrumbList](thing/intangible/item_list/breadcrumb_list.md)
 
 ### Media Objects
