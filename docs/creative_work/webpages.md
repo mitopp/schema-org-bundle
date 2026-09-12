@@ -1,6 +1,6 @@
 # WebPages
 
-Web pages can be described using `WebPage` or more specific types like `CollectionPage` and `ContactPage`.
+Web pages can be described using `WebPage` or more specific types like `CollectionPage`, `ContactPage`, and `ProfilePage`.
 
 ## WebPage
 
@@ -51,6 +51,25 @@ $page = new ContactPage(
     name: 'Contact Us',
     url: '/contact',
     description: 'Get in touch with us.',
+);
+
+$collector->add($page);
+```
+
+## ProfilePage
+
+Specifically for pages describing a person or organization profile.
+
+```php
+use Mitopp\SchemaOrgBundle\Config\SchemaOrgConfigurationInterface;
+use Mitopp\SchemaOrgBundle\Type\Thing\CreativeWork\WebPage\ProfilePage;
+
+/** @var SchemaOrgConfigurationInterface $configuration */
+$page = new ProfilePage(
+    identifier: $configuration->createIdentifier('/users/johndoe#profilepage'),
+    name: 'John Doe Profile',
+    url: '/users/johndoe',
+    description: 'Profile page of John Doe.',
 );
 
 $collector->add($page);

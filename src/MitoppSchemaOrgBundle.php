@@ -21,6 +21,10 @@ final class MitoppSchemaOrgBundle extends AbstractBundle
 
         $rootNode
             ->children()
+                ->scalarNode('pretty_print')
+                    ->info('Enables pretty printing for the generated JSON-LD output.')
+                    ->defaultValue('%kernel.debug%')
+                ->end()
                 ->scalarNode('id_prefix')
                     ->defaultNull()
                     ->info('Optional prefix for generated identifiers.')
@@ -28,10 +32,6 @@ final class MitoppSchemaOrgBundle extends AbstractBundle
                     ->scalarNode('locale')
                     ->defaultNull()
                     ->info('Optional default locale.')
-                ->end()
-                ->booleanNode('pretty_print')
-                    ->info('Enables pretty printing for the generated JSON-LD output.')
-                    ->defaultFalse()
                 ->end()
             ->end()
         ;
@@ -42,7 +42,7 @@ final class MitoppSchemaOrgBundle extends AbstractBundle
      */
     public function loadExtension(array $config, ContainerConfigurator $configurator, ContainerBuilder $container): void
     {
-        /** @var bool $prettyPrint */
+        /** @var bool|string $prettyPrint */
         $prettyPrint = $config['pretty_print'];
 
         /** @var ?string $idPrefix */

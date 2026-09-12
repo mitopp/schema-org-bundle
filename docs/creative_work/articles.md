@@ -1,6 +1,6 @@
-# Article and BlogPosting
+# Article, BlogPosting and TechArticle
 
-These types are used for news articles, blog posts, and similar content.
+These types are used for news articles, blog posts, technical documentation, and similar content.
 
 ## Article
 
@@ -42,4 +42,24 @@ $post = new BlogPosting(
 $post->setProperty('wordCount', 500);
 
 $collector->add($post);
+```
+
+## TechArticle
+
+`TechArticle` is a specific type of `Article` for technical documentation, tutorials, or API references. It supports an optional `dependencies` property.
+
+```php
+use Mitopp\SchemaOrgBundle\Config\SchemaOrgConfigurationInterface;
+use Mitopp\SchemaOrgBundle\Type\Thing\CreativeWork\Article\TechArticle;
+
+/** @var SchemaOrgConfigurationInterface $configuration */
+$techArticle = new TechArticle(
+    identifier: $configuration->createIdentifier('/docs/installation#article'),
+    name: 'Installation Guide',
+    url: '/docs/installation',
+    datePublished: '2024-01-01',
+    dependencies: 'PHP >= 8.2, Composer',
+);
+
+$collector->add($techArticle);
 ```

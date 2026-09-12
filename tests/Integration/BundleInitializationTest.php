@@ -35,9 +35,9 @@ final class BundleInitializationTest extends KernelTestCase
         self::assertInstanceOf(SchemaOrgGraphCollectorInterface::class, $container->get(SchemaOrgGraphCollectorInterface::class));
     }
 
-    public function testRendererHasPrettyPrintEnabledByDefault(): void
+    public function testRendererHasPrettyPrintEnabledInDebugByDefault(): void
     {
-        $kernel = self::bootKernel();
+        $kernel = self::bootKernel(['debug' => true]);
         $container = $kernel->getContainer();
 
         /** @var JsonLdRenderer $renderer */
@@ -46,12 +46,26 @@ final class BundleInitializationTest extends KernelTestCase
         $reflection = new \ReflectionClass($renderer);
         $property = $reflection->getProperty('prettyPrint');
 
-        $this->assertFalse($property->getValue($renderer), 'Pretty print should be enabled by default');
+        $this->assertTrue($property->getValue($renderer), 'Pretty print should be enabled by default in debug mode');
+    }
+
+    public function testRendererHasPrettyPrintDisabledInNonDebugByDefault(): void
+    {
+        $kernel = self::bootKernel(['debug' => false]);
+        $container = $kernel->getContainer();
+
+        /** @var JsonLdRenderer $renderer */
+        $renderer = $container->get(JsonLdRenderer::class);
+
+        $reflection = new \ReflectionClass($renderer);
+        $property = $reflection->getProperty('prettyPrint');
+
+        $this->assertFalse($property->getValue($renderer), 'Pretty print should be disabled by default in non-debug mode');
     }
 
     public function testRendererCanDisablePrettyPrintViaConfig(): void
     {
-        $kernel = self::bootKernel(['config' => function (TestKernel $kernel): void {
+        $kernel = self::bootKernel(['debug' => true, 'config' => function (TestKernel $kernel): void {
             $kernel->addTestConfig(__DIR__ . '/../Common/config.php');
         }]);
         $container = $kernel->getContainer();
@@ -63,6 +77,22 @@ final class BundleInitializationTest extends KernelTestCase
         $property = $reflection->getProperty('prettyPrint');
 
         $this->assertFalse($property->getValue($renderer), 'Pretty print should be disabled via config');
+    }
+
+    public function testRendererCanEnablePrettyPrintViaConfigInNonDebug(): void
+    {
+        $kernel = self::bootKernel(['debug' => false, 'config' => function (TestKernel $kernel): void {
+            $kernel->addTestConfig(__DIR__ . '/../Common/config_pretty_print_true.php');
+        }]);
+        $container = $kernel->getContainer();
+
+        /** @var JsonLdRenderer $renderer */
+        $renderer = $container->get(JsonLdRenderer::class);
+
+        $reflection = new \ReflectionClass($renderer);
+        $property = $reflection->getProperty('prettyPrint');
+
+        $this->assertTrue($property->getValue($renderer), 'Pretty print should be enabled via config even in non-debug mode');
     }
 
     protected static function getKernelClass(): string

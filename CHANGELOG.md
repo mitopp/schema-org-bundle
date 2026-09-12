@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change default value for bundle configuration option `pretty_print` to `'%kernel.debug%'`.
+
 ### Remove 
 
 - Remove `composer.lock` from the code base.

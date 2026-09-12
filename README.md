@@ -37,7 +37,7 @@ You can customize the bundle's behavior in a configuration file (e.g., `config/p
 
 ```yaml
 mitopp_schema_org:
-    # Enables or disables formatted JSON output (default: true)
+    # Enables or disables formatted JSON output (default: '%kernel.debug%')
     pretty_print: true
     # Optional: Default locale for objects (default: 'de')
     default_locale: 'en'
@@ -152,14 +152,17 @@ The bundle currently includes several common Schema.org types. For detailed exam
 - `Organization`
 - `Person`
 - `WebSite`
-- `WebPage` (including `CollectionPage` and `ContactPage`)
-- `Article` & `BlogPosting`
+- `WebPage` (including `CollectionPage`, `ContactPage`, and `ProfilePage`)
+- `Article` (including `BlogPosting` and `TechArticle`)
 - `Recipe` (including `AggregateRating`, `Review`, `Comment`)
 - `HowToStep`
 - `ImageObject`
 - `AggregateRating`
 - `Review`
 - `Comment`
+- `SearchAction`
+- `ListItem`
+- `BreadcrumbList`
 
 ## Creating Custom Types
 
@@ -180,6 +183,7 @@ class MyCustomType extends AbstractType
     public function setCustomProperty(string $value): self
     {
         $this->data['customProperty'] = $value;
+        
         return $this;
     }
 }
