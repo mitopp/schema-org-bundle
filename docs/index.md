@@ -5,9 +5,9 @@ This section provides examples and documentation for the Schema.org types suppor
 ## Available Types
 
 ### Creative Works
-- [Article & BlogPosting](creative_work/articles.md)
+- [Article, BlogPosting & TechArticle](creative_work/articles.md)
 - [Recipe](creative_work/recipe.md)
-- [WebPage, CollectionPage & ContactPage](creative_work/webpages.md)
+- [WebPage, CollectionPage, ContactPage & ProfilePage](creative_work/webpages.md)
 - [WebSite](creative_work/website.md)
 - [HowToStep](creative_work/how_to_step.md)
 - [Reviews, Ratings & Comments](creative_work/reviews.md)
