@@ -4,6 +4,7 @@
 config/reference.php
 .php-cs-fixer.cache
 .phpunit.result.cache
+composer.lock
 
 ###> symfony/framework-bundle ###
 /.env.local
