@@ -149,20 +149,32 @@ To output the collected data in your HTML header, use the provided Twig function
 
 The bundle currently includes several common Schema.org types. For detailed examples and usage instructions, please refer to our [documentation](docs/index.md).
 
-- `Organization`
-- `Person`
-- `WebSite`
-- `WebPage` (including `CollectionPage`, `ContactPage`, and `ProfilePage`)
-- `Article` (including `BlogPosting` and `TechArticle`)
-- `Recipe` (including `AggregateRating`, `Review`, `Comment`)
-- `HowToStep`
-- `ImageObject`
-- `AggregateRating`
-- `Review`
-- `Comment`
-- `SearchAction`
-- `ListItem`
-- `BreadcrumbList`
+- `Thing`
+  - `Action`
+    - `SearchAction`
+  - `CreativeWork`
+    - `Article`
+      - `BlogPosting`
+      - `TechArticle`
+    - `Comment`
+    - `HowToStep`
+    - `MediaObject`
+      - `ImageObject`
+    - `Recipe`
+    - `Review`
+    - `WebPage`
+      - `CollectionPage`
+      - `ContactPage`
+      - `ProfilePage`
+    - `WebSite`
+  - `Intangible`
+    - `ItemList`
+      - `BreadcrumbList`
+    - `ListItem`
+    - `Rating`
+      - `AggregateRating`
+  - `Organization`
+  - `Person`
 
 ## Creating Custom Types
 
